@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtividade com IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Modern AI Education Theme */
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --bg-dark: #000000;
+            --text-primary: #ffffff;
+            --text-secondary: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --text-light: #ffffff;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #ff6b6b;
+            --accent-tertiary: #4ecdc4;
+            --accent-success: #45b7d1;
+            --accent-warning: #f9ca24;
+            --accent-error: #ff4757;
+            --accent-purple: #a55eea;
+            --accent-pink: #fd79a8;
+            --accent-orange: #fdcb6e;
+            --border: #333333;
+            --border-light: #444444;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-ai: linear-gradient(135deg, #00d4ff 0%, #4ecdc4 50%, #a55eea 100%);
+            --gradient-neon: linear-gradient(135deg, #00d4ff 0%, #ff6b6b 50%, #4ecdc4 100%);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *:focus {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+        h4 { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .divider {
+            display: block;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover, .nav-links a:focus {
+            color: var(--primary);
+            outline: none;
+        }
+        
+        /* Menu Mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-ai);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(67, 97, 238, 0.1);
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(247, 37, 133, 0.1);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 900;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: var(--accent-primary);
+            color: #000000;
+            border-radius: var(--radius-xl);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: var(--transition);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .btn:hover::after {
+            transform: translateX(100%);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
+        }
+        
+        /* Seções */
+        section {
+            padding: 100px 0;
+            scroll-margin-top: 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Sobre Section */
+        .about-content {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Ferramentas Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .tool-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-neon);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-primary);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .tool-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .tool-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Fluxo Section */
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .flow-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 2rem;
+            width: 3px;
+            background: var(--gradient-primary);
+            z-index: 0;
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            margin-left: 4rem;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: absolute;
+            left: -2rem;
+            top: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 3px solid var(--bg-primary);
+        }
+        
+        .step-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Considerações Section */
+        .considerations {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        
+        /* Conclusão Section */
+        .conclusion {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .conclusion p {
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-primary);
+            background-color: rgba(0, 212, 255, 0.1);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Botão de voltar ao topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover, .back-to-top:focus {
+            transform: translateY(-5px);
+            outline: none;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .flow-step {
+                margin-left: 0;
+                flex-direction: column;
+            }
+            
+            .step-number {
+                position: static;
+                margin-bottom: 20px;
+            }
+            
+            .flow-steps::before {
+                display: none;
+            }
+            
+            .about-content, .considerations, .conclusion {
+                padding: 30px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+            }
+
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: auto;
+                padding: 100px 0;
+            }
+            
+            .tool-card {
+                padding: 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-success);
+            font-weight: bold;
+        }
+
+        /* Mobile-optimized modal content */
+        .modal-summary {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .modal-details {
+            display: none;
+        }
+
+        .modal-details.show {
+            display: block;
+        }
+
+        .expand-btn {
+            background: none;
+            border: none;
+            color: var(--accent-primary);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .expand-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            position: relative;
+            animation: slideIn 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-xl);
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-title i {
+            font-size: 2rem;
+            color: var(--accent-primary);
+        }
+
+        .close {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close:hover {
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .modal-body {
+            line-height: 1.7;
+            padding-right: 0.5rem;
+        }
+
+        /* Custom scrollbar for modal */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-success);
+            font-weight: bold;
+        }
+
+        .pricing-info {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 5% auto;
+                width: 95%;
+                padding: 1.5rem;
+                max-height: 90vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-robot"></i>
+                    IAProdutiva
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">Apresentação</a></li>
+                    <li><a href="#tools">Ferramentas</a></li>
+                    <li><a href="#flow">Fluxo</a></li>
+                    <li><a href="#considerations">Considerações</a></li>
+                    <li><a href="#conclusion">Conclusão</a></li>
+                </ul>
+                <button class="mobile-menu-btn" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Produtividade com IA</h1>
+                <p>A inteligência artificial, quando usada como ferramenta de apoio — e não como substituta total — pode ser uma grande aliada no dia a dia.</p>
+                <a href="#about" class="btn">Explorar Ferramentas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apresentação Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apresentação</h2>
+                <p>Como a IA pode potencializar sua produtividade</p>
+            </div>
+            <div class="about-content">
+                <p>Aqui vamos explorar as principais ferramentas de IA aplicadas à produtividade, entendendo em que cada uma é mais útil e como integrá-las em um fluxo prático de trabalho.</p>
+                <p>Já tenho algum tempo estudando IAs, testando e comparando, e de acordo com minhas pesquisas e experiências essas ferramentas se mostraram as mais eficazes para as necessidades que eu buscava resolver.</p>
+                <span class="divider">⸻</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ferramentas Section -->
+    <section id="tools" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Principais IAs e Suas Utilidades</h2>
+                <p>Ferramentas selecionadas com base em experiência prática</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card fade-in" onclick="openModal('notion-modal')" style="cursor: pointer;">
+                    <div class="tool-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3>Notion AI</h3>
+                    <p>Ideal para organizar anotações, resumos de reunião e ideias, centralizando tudo em um só lugar. Para mim, o Notion é um bloco de notas, diário e uma central onde consolido informações do dia a dia, lembretes e estudos.</p>
+                    <div style="margin-top: 1rem; color: var(--accent-primary); font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Clique para mais detalhes
+                    </div>
+                </div>
+                <div class="tool-card fade-in" onclick="openModal('chatgpt-modal')" style="cursor: pointer;">
+                    <div class="tool-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>ChatGPT (OpenAI)</h3>
+                    <p>Excelente para estruturar ideias, melhorar prompts e criar conteúdos bem organizados. O ChatGPT entende como as pessoas escrevem e falam, o que o torna perfeito para ajudar a organizar pensamentos e acelerar a criação de conteúdo.</p>
+                    <div style="margin-top: 1rem; color: var(--accent-primary); font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Clique para mais detalhes
+                    </div>
+                </div>
+                <div class="tool-card fade-in" onclick="openModal('perplexity-modal')" style="cursor: pointer;">
+                    <div class="tool-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Perplexity</h3>
+                    <p>Se destacou nas minhas pesquisas por apresentar fontes confiáveis e ser muito fiel ao que pedi, evitando inventar informações. Uso para pesquisas profundas e checagem de dados.</p>
+                    <div style="margin-top: 1rem; color: var(--accent-primary); font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Clique para mais detalhes
+                    </div>
+                </div>
+                <div class="tool-card fade-in" onclick="openModal('qwen-modal')" style="cursor: pointer;">
+                    <div class="tool-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Qwen (Alibaba)</h3>
+                    <p>Modelo multimodal que trabalha bem com texto, imagem e áudio. Nas minhas experiências, é ótimo para aplicações corporativas e para quem precisa de análises visuais integradas a pesquisas.</p>
+                    <div style="margin-top: 1rem; color: var(--accent-primary); font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Clique para mais detalhes
+                    </div>
+                </div>
+                <div class="tool-card fade-in" onclick="openModal('claude-modal')" style="cursor: pointer;">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Claude (Anthropic)</h3>
+                    <p>Uma ferramenta muito útil para estruturar documentos extensos, analisar estratégias e frameworks complexos. Em um projeto de desenvolvimento de marca e campanhas, consegui obter análises surpreendentemente boas.</p>
+                    <div style="margin-top: 1rem; color: var(--accent-primary); font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Clique para mais detalhes
+                    </div>
+                </div>
+                <div class="tool-card fade-in" onclick="openModal('bolt-modal')" style="cursor: pointer;">
+                    <div class="tool-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Bolt.new</h3>
+                    <p>Perfeito para criar protótipos e aplicativos rapidamente sem exigir conhecimentos avançados em programação. Usei para validar ideias digitais e construir MVPs de forma ágil.</p>
+                    <div style="margin-top: 1rem; color: var(--accent-primary); font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Clique para mais detalhes
+                    </div>
+                </div>
+            </div>
+            <span class="divider">⸻</span>
+        </div>
+    </section>
+
+    <!-- Fluxo Section -->
+    <section id="flow">
+        <div class="container">
+            <div class="section-title">
+                <h2>Exemplo de Fluxo de Uso Prático</h2>
+                <p>Como integrar as ferramentas em um workflow eficiente</p>
+            </div>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Captura da Informação</h3>
+                        <p>Anoto ideias ou resumos de reuniões no Notion AI, que já organiza e resume automaticamente.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Estruturação Inicial</h3>
+                        <p>Essas informações vão para o ChatGPT, que ajuda a estruturar o texto, refinar as ideias e adicionar insights.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Pesquisa Aprofundada</h3>
+                        <p>Com a base pronta, uso Perplexity ou Qwen para pesquisas mais confiáveis e análises detalhadas.</p>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Desenvolvimento Avançado</h3>
+                        <p>Ideias consolidadas são levadas ao Claude para revisão e estruturação de documentos longos ou estratégias. Para transformar conceitos em protótipos funcionais, uso o Bolt.new.</p>
+                    </div>
+                </div>
+            </div>
+            <span class="divider">⸻</span>
+        </div>
+    </section>
+
+    <!-- Considerações Section -->
+    <section id="considerations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Considerações sobre Versões</h2>
+                <p>Grátis versus Premium - O que vale a pena</p>
+            </div>
+            <div class="considerations">
+                <p>Todas as ferramentas acima têm versões gratuitas que atendem à maioria dos usuários. Caso uma delas chame sua atenção, minha recomendação é fazer um teste com a versão paga por 1 mês para avaliar se ela realmente acrescenta valor ao seu trabalho. Assim, você evita gastos desnecessários e decide com base na experiência prática.</p>
+            </div>
+            <span class="divider">⸻</span>
+        </div>
+    </section>
+
+    <!-- Conclusão Section -->
+    <section id="conclusion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conclusão Inspiradora</h2>
+                <p>O futuro da produtividade com IA</p>
+            </div>
+            <div class="conclusion">
+                <p>As ferramentas de inteligência artificial podem ser verdadeiros catalisadores de produtividade e criatividade quando usadas de forma estratégica e consciente.</p>
+                <p>Para extrair o máximo delas, é preciso entender suas forças, respeitar seus limites e integrar aquelas que mais se alinham ao seu jeito de trabalhar.</p>
+                <p>Mais do que automatizar tarefas, elas podem liberar seu tempo e sua mente para focar no que realmente importa: <span class="highlight">criar, inovar e transformar projetos em resultados concretos</span>.</p>
+                <p>Seja curioso, teste, aprenda e encontre sua combinação ideal para que a IA potencialize sua inteligência humana — e não para substituí-la.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Notion AI -->
+    <div id="notion-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-sticky-note"></i>
+                    <h2>Notion AI</h2>
+                </div>
+                <span class="close" onclick="closeModal('notion-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Notion AI</strong> é uma ferramenta revolucionária que integra inteligência artificial diretamente na plataforma de produtividade mais popular do mundo.</p>
+                
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Principais Funcionalidades:</h3>
+                <ul class="feature-list">
+                    <li><strong>Geração de Conteúdo:</strong> Crie textos, listas, tabelas e documentos automaticamente</li>
+                    <li><strong>Resumo Inteligente:</strong> Resuma automaticamente documentos longos e reuniões</li>
+                    <li><strong>Organização Automática:</strong> Organize informações e crie estruturas de dados</li>
+                    <li><strong>Tradução Instantânea:</strong> Traduza conteúdo em tempo real</li>
+                    <li><strong>Brainstorming:</strong> Gere ideias e expanda conceitos automaticamente</li>
+                    <li><strong>Formatação Inteligente:</strong> Formate documentos e criar layouts automaticamente</li>
+                </ul>
+
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Casos de Uso Ideais:</h3>
+                <ul class="feature-list">
+                    <li>Anotações de reuniões e resumos executivos</li>
+                    <li>Organização de projetos e workflows</li>
+                    <li>Criação de documentação técnica</li>
+                    <li>Planejamento e brainstorming</li>
+                    <li>Gestão de conhecimento pessoal</li>
+                </ul>
+
+                <div class="pricing-info">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--accent-primary);">Informações de Preço:</h4>
+                    <p style="margin: 0; color: var(--text-secondary);">
+                        <strong>Gratuito:</strong> 20 respostas de IA por mês<br>
+                        <strong>Plus ($8/mês):</strong> Respostas ilimitadas<br>
+                        <strong>Business ($15/mês):</strong> Recursos avançados para equipes
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://notion.so" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visitar Notion AI
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ChatGPT -->
+    <div id="chatgpt-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-comments"></i>
+                    <h2>ChatGPT (OpenAI)</h2>
+                </div>
+                <span class="close" onclick="closeModal('chatgpt-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>ChatGPT</strong> é o modelo de linguagem mais popular do mundo, desenvolvido pela OpenAI, que revolucionou a forma como interagimos com IA.</p>
+                
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Principais Funcionalidades:</h3>
+                <ul class="feature-list">
+                    <li><strong>Conversação Natural:</strong> Interação fluida e contextual</li>
+                    <li><strong>Geração de Conteúdo:</strong> Criação de textos, artigos e documentos</li>
+                    <li><strong>Análise e Resumo:</strong> Processamento e síntese de informações</li>
+                    <li><strong>Programação:</strong> Assistência em código e debugging</li>
+                    <li><strong>Tradução:</strong> Suporte a múltiplos idiomas</li>
+                    <li><strong>Brainstorming:</strong> Geração de ideias e soluções criativas</li>
+                </ul>
+
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Casos de Uso Ideais:</h3>
+                <ul class="feature-list">
+                    <li>Estruturação de ideias e conceitos</li>
+                    <li>Criação de conteúdo para blogs e redes sociais</li>
+                    <li>Assistência em programação e desenvolvimento</li>
+                    <li>Análise de dados e relatórios</li>
+                    <li>Planejamento de projetos e estratégias</li>
+                </ul>
+
+                <div class="pricing-info">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--accent-primary);">Informações de Preço:</h4>
+                    <p style="margin: 0; color: var(--text-secondary);">
+                        <strong>Gratuito:</strong> Acesso básico ao GPT-3.5<br>
+                        <strong>Plus ($20/mês):</strong> GPT-4, plugins e recursos avançados<br>
+                        <strong>Enterprise:</strong> Soluções personalizadas para empresas
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visitar ChatGPT
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Perplexity -->
+    <div id="perplexity-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-search"></i>
+                    <h2>Perplexity</h2>
+                </div>
+                <span class="close" onclick="closeModal('perplexity-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Perplexity</strong> é um assistente de pesquisa baseado em IA que combina a precisão de um motor de busca com a inteligência de um chatbot, fornecendo respostas baseadas em fontes confiáveis.</p>
+                
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Principais Funcionalidades:</h3>
+                <ul class="feature-list">
+                    <li><strong>Pesquisa Inteligente:</strong> Busca em tempo real com fontes verificadas</li>
+                    <li><strong>Citações Automáticas:</strong> Referências diretas às fontes utilizadas</li>
+                    <li><strong>Múltiplas Perspectivas:</strong> Apresenta diferentes pontos de vista</li>
+                    <li><strong>Atualização em Tempo Real:</strong> Informações sempre atualizadas</li>
+                    <li><strong>Modo Foco:</strong> Pesquisas especializadas por área</li>
+                    <li><strong>Exportação:</strong> Salve e compartilhe pesquisas</li>
+                </ul>
+
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Casos de Uso Ideais:</h3>
+                <ul class="feature-list">
+                    <li>Pesquisas acadêmicas e científicas</li>
+                    <li>Análise de mercado e tendências</li>
+                    <li>Verificação de fatos e fact-checking</li>
+                    <li>Estudos de caso e relatórios</li>
+                    <li>Preparação de apresentações e documentos</li>
+                </ul>
+
+                <div class="pricing-info">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--accent-primary);">Informações de Preço:</h4>
+                    <p style="margin: 0; color: var(--text-secondary);">
+                        <strong>Gratuito:</strong> 5 pesquisas por dia<br>
+                        <strong>Pro ($20/mês):</strong> Pesquisas ilimitadas, upload de arquivos<br>
+                        <strong>Enterprise:</strong> Soluções personalizadas para equipes
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://perplexity.ai" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visitar Perplexity
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Qwen -->
+    <div id="qwen-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-images"></i>
+                    <h2>Qwen (Alibaba)</h2>
+                </div>
+                <span class="close" onclick="closeModal('qwen-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Qwen</strong> é um modelo multimodal desenvolvido pela Alibaba que combina processamento de texto, imagem e áudio em uma única plataforma poderosa.</p>
+                
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Principais Funcionalidades:</h3>
+                <ul class="feature-list">
+                    <li><strong>Multimodalidade:</strong> Processa texto, imagem e áudio simultaneamente</li>
+                    <li><strong>Análise Visual:</strong> Compreensão e descrição de imagens</li>
+                    <li><strong>Processamento de Áudio:</strong> Transcrição e análise de áudio</li>
+                    <li><strong>Geração de Conteúdo:</strong> Criação de textos e análises</li>
+                    <li><strong>Integração Corporativa:</strong> APIs para aplicações empresariais</li>
+                    <li><strong>Suporte Multilíngue:</strong> Múltiplos idiomas</li>
+                </ul>
+
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Casos de Uso Ideais:</h3>
+                <ul class="feature-list">
+                    <li>Análise de documentos com imagens</li>
+                    <li>Processamento de relatórios visuais</li>
+                    <li>Transcrição e análise de reuniões</li>
+                    <li>Aplicações corporativas integradas</li>
+                    <li>Pesquisas que envolvem múltiplos formatos</li>
+                </ul>
+
+                <div class="pricing-info">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--accent-primary);">Informações de Preço:</h4>
+                    <p style="margin: 0; color: var(--text-secondary);">
+                        <strong>Gratuito:</strong> Acesso limitado via Hugging Face<br>
+                        <strong>Enterprise:</strong> Licenciamento e suporte corporativo<br>
+                        <strong>API:</strong> Integração via APIs da Alibaba Cloud
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://qwen.ai/home" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visitar Qwen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Claude -->
+    <div id="claude-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Claude (Anthropic)</h2>
+                </div>
+                <span class="close" onclick="closeModal('claude-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Claude</strong> é um modelo de IA desenvolvido pela Anthropic, conhecido por sua capacidade de análise profunda, segurança e ética em suas respostas.</p>
+                
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Principais Funcionalidades:</h3>
+                <ul class="feature-list">
+                    <li><strong>Análise Estratégica:</strong> Pensamento crítico e análise complexa</li>
+                    <li><strong>Processamento de Documentos:</strong> Upload e análise de arquivos grandes</li>
+                    <li><strong>Segurança Avançada:</strong> Foco em privacidade e ética</li>
+                    <li><strong>Geração de Conteúdo:</strong> Criação de textos sofisticados</li>
+                    <li><strong>Assistência em Código:</strong> Programação e debugging</li>
+                    <li><strong>Planejamento:</strong> Estratégias e frameworks complexos</li>
+                </ul>
+
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Casos de Uso Ideais:</h3>
+                <ul class="feature-list">
+                    <li>Análise de estratégias de negócio</li>
+                    <li>Desenvolvimento de frameworks complexos</li>
+                    <li>Revisão de documentos extensos</li>
+                    <li>Planejamento de projetos estratégicos</li>
+                    <li>Análise de dados e relatórios</li>
+                </ul>
+
+                <div class="pricing-info">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--accent-primary);">Informações de Preço:</h4>
+                    <p style="margin: 0; color: var(--text-secondary);">
+                        <strong>Gratuito:</strong> Acesso limitado ao Claude 3 Haiku<br>
+                        <strong>Pro ($20/mês):</strong> Claude 3 Sonnet e recursos avançados<br>
+                        <strong>Team ($25/mês):</strong> Colaboração em equipe<br>
+                        <strong>Enterprise:</strong> Soluções corporativas personalizadas
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visitar Claude
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bolt.new -->
+    <div id="bolt-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <i class="fas fa-bolt"></i>
+                    <h2>Bolt.new</h2>
+                </div>
+                <span class="close" onclick="closeModal('bolt-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Bolt.new</strong> é uma plataforma de desenvolvimento rápido que permite criar aplicativos e protótipos funcionais sem conhecimentos avançados de programação.</p>
+                
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Principais Funcionalidades:</h3>
+                <ul class="feature-list">
+                    <li><strong>Desenvolvimento Rápido:</strong> Crie apps em minutos, não meses</li>
+                    <li><strong>Interface Visual:</strong> Drag-and-drop sem código</li>
+                    <li><strong>Integração com IA:</strong> Assistência inteligente no desenvolvimento</li>
+                    <li><strong>Deploy Automático:</strong> Publicação instantânea</li>
+                    <li><strong>Templates Prontos:</strong> Componentes reutilizáveis</li>
+                    <li><strong>Colaboração:</strong> Trabalho em equipe em tempo real</li>
+                </ul>
+
+                <h3 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">Casos de Uso Ideais:</h3>
+                <ul class="feature-list">
+                    <li>Validação de ideias e MVPs</li>
+                    <li>Prototipagem rápida de produtos</li>
+                    <li>Aplicações internas para empresas</li>
+                    <li>Landing pages e sites simples</li>
+                    <li>Ferramentas de produtividade personalizadas</li>
+                </ul>
+
+                <div class="pricing-info">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--accent-primary);">Informações de Preço:</h4>
+                    <p style="margin: 0; color: var(--text-secondary);">
+                        <strong>Gratuito:</strong> 3 projetos, recursos básicos<br>
+                        <strong>Pro ($29/mês):</strong> Projetos ilimitados, recursos avançados<br>
+                        <strong>Team ($99/mês):</strong> Colaboração em equipe<br>
+                        <strong>Enterprise:</strong> Soluções personalizadas
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visitar Bolt.new
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <a href="#" class="footer-logo" style="font-size: 1.75rem; font-weight: 900; color: var(--text-light); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                            <i class="fas fa-brain" style="color: var(--accent-primary);" aria-label="Ícone de cérebro representando inteligência artificial"></i>
+                            IAProdutiva
+                        </a>
+                        <p style="color: var(--text-muted);">Guia completo sobre produtividade com IA.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--text-light); margin-bottom: 1rem;">Conteúdo</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">Ferramentas</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">Blog</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">Tutoriais</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--text-light); margin-bottom: 1rem;">Sobre</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">Sobre nós</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">Trabalhe Conosco</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">Para empresas</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--text-light); margin-bottom: 1rem;">Suporte</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">Contato</a></li>
+                            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: var(--text-muted); text-decoration: none;">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="border-top: 1px solid var(--border); padding-top: 2rem; text-align: center;">
+                    <p style="color: var(--text-muted); font-size: 0.875rem;">&copy; 2024 IAProdutiva. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Menu Mobile
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', 
+                menuBtn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Botão voltar ao topo
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Animação de revelação ao scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealElements = document.querySelectorAll('.tool-card, .flow-step, .about-content, .considerations, .conclusion');
+            
+            function checkReveal() {
+                const windowHeight = window.innerHeight;
+                
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Configura estado inicial para animação
+            revealElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            window.addEventListener('scroll', checkReveal);
+            checkReveal(); // Verifica ao carregar a página
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html></html>
